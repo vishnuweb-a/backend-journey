@@ -1,11 +1,15 @@
 import dotenv from "dotenv"
 dotenv.config({
-  path :"./.env"
+  path:'./.env'
 })
-import mongoose from "mongoose";
-import { DB_NAME } from "./constants.js";
 
 
+
+
+import connectDB from "./db/index.js";
+connectDB()
+
+/*
 import express from "express";
 const app = express()
 app.use((req, res, next) => {
@@ -17,7 +21,8 @@ app.use((req, res, next) => {
 
 (async () =>{
   try{
-      await mongoose.connect(`${process.env.MONGODB_UR}/${DB_NAME }`)
+      await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME }`)
+      console.log("database subitted successfully .");
       app.on("error",(error) =>{
         console.log("error", error);
         throw error
@@ -30,4 +35,4 @@ app.use((req, res, next) => {
     console.error("error", error)
     throw error
   }
-})
+})*/
